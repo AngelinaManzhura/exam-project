@@ -1,21 +1,38 @@
+import { changeCurrency } from 'redux/currencyReducer'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
 import './Currency.scss'
 
 type Props = {}
 
+export const currency = ['USD', 'EUR', 'UAH']
+
 const Currency = (props: Props) => {
+  const currentCurrency = useAppSelector(
+    (state) => state.currencyReducer.currency
+  )
+
+  const dispatch = useAppDispatch()
+
   return (
     <>
       <section className="currency">
         <ul className="currency-list">
-          <li className="currency-list-item">
-            <button type="submit">USD</button>
-          </li>
-          <li className="currency-list-item">
-            <button type="submit">EUR</button>
-          </li>
-          <li className="currency-list-item">
-            <button type="submit">UAH</button>
-          </li>
+          {currency.map((el) => (
+            <li
+              className={`currency-list-item ${
+                el === currentCurrency ? 'currency-list-item-active' : ''
+              }`}
+              key={el}
+            >
+              <button
+                type="submit"
+                disabled={el === currentCurrency}
+                onClick={() => dispatch(changeCurrency(el))}
+              >
+                {el}
+              </button>
+            </li>
+          ))}
         </ul>
       </section>
     </>

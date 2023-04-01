@@ -5,5 +5,9 @@
 
   &-list {
     text-align: center;
+
+    &-price {
+      text-transform: uppercase;
+    }
   }
 }

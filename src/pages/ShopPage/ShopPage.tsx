@@ -1,5 +1,6 @@
 import Currency from 'components/Currency/Currency'
 import ProductsList from 'components/ProductsList/ProductsList'
+import Total from 'components/Total/Total'
 import './ShopPage.scss'
 
 type Props = {}
@@ -12,6 +13,7 @@ const ShopPage = (props: Props) => {
           <h1 className="shop-content-title">Our shop page</h1>
           <Currency />
           <ProductsList />
+          <Total />
         </div>
       </section>
     </>

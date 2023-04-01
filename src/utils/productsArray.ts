@@ -3,10 +3,8 @@ export type Product = {
   title: string
   description: string
   price: {
-    id: number
-    eur: number
-    usd: number
-    uan: number
+    amount: number
+    currency: string
   }
 }
 
@@ -16,10 +14,8 @@ const productsArray: Product[] = [
     title: 'iPhone 12',
     description: 'This is iPhone 12',
     price: {
-      id: 1,
-      eur: 750,
-      usd: 700,
-      uan: 26000,
+      amount: 700,
+      currency: 'USD',
     },
   },
   {
@@ -27,10 +23,8 @@ const productsArray: Product[] = [
     title: 'iPhone 8',
     description: 'This is iPhone 8',
     price: {
-      id: 2,
-      eur: 850,
-      usd: 800,
-      uan: 30000,
+      amount: 800,
+      currency: 'USD',
     },
   },
   {
@@ -38,10 +32,8 @@ const productsArray: Product[] = [
     title: 'iPhone X',
     description: 'This is iPhone X',
     price: {
-      id: 3,
-      eur: 1250,
-      usd: 1200,
-      uan: 45000,
+      amount: 1200,
+      currency: 'USD',
     },
   },
 ]
