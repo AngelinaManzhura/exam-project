@@ -1,4 +1,5 @@
-import { useAppSelector } from 'redux/hooks'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { addProductToCart } from 'redux/productsCart'
 import productsArray from 'utils/productsArray'
 import './ProductsList.scss'
 
@@ -13,6 +14,8 @@ const ProductsList = (props: Props) => {
     (state) => state.currencyReducer.exchangeRates
   )
 
+  const dispatch = useAppDispatch()
+
   return (
     <>
       <section className="products">
@@ -25,7 +28,12 @@ const ProductsList = (props: Props) => {
               {currentCurrency}
             </span>
             <br />
-            <button type="submit">Buy</button>
+            <button
+              type="submit"
+              onClick={() => dispatch(addProductToCart(el))}
+            >
+              Buy
+            </button>
           </div>
         ))}
       </section>
